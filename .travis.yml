@@ -9,10 +9,8 @@ script:
   - docker run -e CI=true testadmin/dockerwithci npm run test
 
 deploy:
-  edge: true
   provider: elasticbeanstalk
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_KEY
+  edge: true
   region: "us-east-2"
   app: "docker-react-admin"
   env: "DockerReactAdmin-env"
@@ -20,3 +18,5 @@ deploy:
   bucket_path: "docker-react-admin"
   on:
     branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
